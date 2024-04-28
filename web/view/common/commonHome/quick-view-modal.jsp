@@ -4,7 +4,9 @@
     Author     : Admin
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <div class="modal" id="quick_view">
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
@@ -26,7 +28,7 @@
                         </div>
                         <div class="col-lg-7">
                             <div class="product-details-des">
-                                <h3 class="product-name">Premium Mens Sports Lather Keds</h3>
+                                <h3 class="product-name">${productFindId.getName()}</h3>
                                 <div class="ratings d-flex">
                                     <span><i class="fa fa-star"></i></span>
                                     <span><i class="fa fa-star"></i></span>

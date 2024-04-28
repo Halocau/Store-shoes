@@ -668,12 +668,13 @@
                                             <!-- product grid start -->
                                             <div class="product-item">
                                                 <div class="product-thumb">
-                                                    <a href="detail?id=${id}">
-                                                        <img src="${pageContext.request.contextPath}/img/product/product-1.jpg" alt="product thumb">
+                                                    <a href="detail?id=${pro.getId()}">
+<!--                                                        <img src="${pageContext.request.contextPath}/img/product/product-1.jpg" alt="product thumb">-->
+                                                        <img src="${pro.getImage()}" alt="shoes" />
                                                     </a>
                                                     <div class="button-group">
                                                         <a href="wishlist.html" data-bs-toggle="tooltip" title="Add to Wishlist"><i class="fa fa-heart-o"></i></a>
-                                                        <a href="#" data-bs-toggle="modal" data-bs-target="#quick_view"><span data-bs-toggle="tooltip"  title="Quick View"><i class="fa fa-eye"></i></span></a>
+                                                        <a href="detail?id=${pro.getId()}" data-bs-toggle="modal" data-bs-target="#quick_view"><span data-bs-toggle="tooltip"  title="Quick View"><i class="fa fa-eye"></i></span></a>
                                                     </div>
                                                     <div class="product-label">
                                                         <span>new</span>
@@ -685,7 +686,7 @@
                                                 <div class="product-content">
                                                     <div class="product-caption">
                                                         <h6 class="product-name">
-                                                            <a href="homedetail.jsp">${pro.getName()}</a>
+                                                            <a href="detail?id=${pro.getId()}">${pro.getName()}</a>
                                                         </h6>
                                                         <div class="price-box">
                                                             <span class="price-old"><del>$90.00</del></span>

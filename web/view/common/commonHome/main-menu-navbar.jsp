@@ -7,7 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <nav class="desktop-menu">
     <ul>
-        <li class="active"><a href="index.html">Home <i class="fa fa-angle-down"></i></a>
+        <li class="active"><a href="home">Home <i class="fa fa-angle-down"></i></a>
             <ul class="dropdown">
                 <li><a href="index.html">Home version 01</a></li>
                 <li><a href="index-2.html">Home version 02</a></li>

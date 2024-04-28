@@ -25,11 +25,17 @@ public class homedetail extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        HttpSession session = request.getSession();
+     
         //get id từ trang hôm về
         int id = Integer.parseInt(request.getParameter("id"));
         // set id product vào request và chuyển qua trang homedetail.jsp
+        // - set id product vào request
         Product product = new Product();
+        product.setId(id);
+        // - Tìm product id trong database
+        Product productFindId = productDAO.findProductById(product);
+        request.getSession().setAttribute("productFindId", productFindId);
+        request.getRequestDispatcher("view/home/homedetail.jsp").forward(request, response);
     } 
 
     @Override
