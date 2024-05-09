@@ -7,15 +7,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <nav class="desktop-menu">
     <ul>
-        <li class="active"><a href="home">Home <i class="fa fa-angle-down"></i></a>
-            <ul class="dropdown">
-                <li><a href="index.html">Home version 01</a></li>
-                <li><a href="index-2.html">Home version 02</a></li>
-                <li><a href="index-3.html">Home version 03</a></li>
-                <li><a href="index-4.html">Home version 04</a></li>
-                <li><a href="index-5.html">Home version 05</a></li>
-                <li><a href="index-6.html">Home version 06</a></li>
-            </ul>
+        <li class="active"><a href="home">Home </a>
+            
         </li>
         <li class="position-static"><a href="#">pages <i class="fa fa-angle-down"></i></a>
             <ul class="megamenu dropdown">
@@ -54,7 +47,7 @@
                         <li><a href="my-account.html">my-account</a></li>
                         <li><a href="login-register.html">login-register</a></li>
                         <li><a href="about-us.html">about us</a></li>
-                        <li><a href="contact-us.html">contact us</a></li>
+                        <li><a href="https://www.facebook.com/buitienquat">contact us</a></li>
                     </ul>
                 </li>
             </ul>
@@ -100,6 +93,6 @@
                 <li><a href="blog-details-image.html">blog details image</a></li>
             </ul>
         </li>
-        <li><a href="contact-us.html">Contact us</a></li>
+        <li><a href="https://www.facebook.com/buitienquat">Contact us</a></li>
     </ul>
 </nav>

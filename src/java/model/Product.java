@@ -17,7 +17,7 @@ public class Product {
     private String description;
     private int categoryId;
     private String size;
-
+    
     public Product() {
     }
 

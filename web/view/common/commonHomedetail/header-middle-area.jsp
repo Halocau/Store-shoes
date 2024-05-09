@@ -11,7 +11,7 @@
             <!-- start logo area -->
             <div class="col-auto">
                 <div class="logo">
-                    <a href="index.html">
+                    <a href="home">
                         <img src="${pageContext.request.contextPath}/img/logo/logo.png" alt="Brand Logo">
                     </a>
                 </div>
@@ -72,7 +72,7 @@
                                                 <li><a href="my-account.html">my-account</a></li>
                                                 <li><a href="login-register.html">login-register</a></li>
                                                 <li><a href="about-us.html">about us</a></li>
-                                                <li><a href="contact-us.html">contact us</a></li>
+                                                <li><a href="https://www.facebook.com/buitienquat">contact us</a></li>
                                             </ul>
                                         </li>
                                     </ul>
@@ -118,7 +118,7 @@
                                         <li><a href="blog-details-image.html">blog details image</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="contact-us.html">Contact us</a></li>
+                                <li><a href="https://www.facebook.com/buitienquat">Contact us</a></li>
                             </ul>
                         </nav>
                         <!-- main menu navbar end -->

@@ -58,7 +58,7 @@
                                 <!-- start logo area -->
                                 <div class="col-auto">
                                     <div class="logo">
-                                        <a href="index.html">
+                                        <a href="home">
                                             <img src="${pageContext.request.contextPath}/img/logo/logo.png" alt="Brand Logo">
                                     </a>
                                 </div>
@@ -165,7 +165,7 @@
                         <div class="col-12">
                             <div class="mobile-main-header">
                                 <div class="mobile-logo">
-                                    <a href="index.html">
+                                    <a href="home">
                                         <img src="${pageContext.request.contextPath}/img/logo/logo.png" alt="Brand Logo">
                                     </a>
                                 </div>
@@ -263,7 +263,7 @@
                                                     <li><a href="my-account.html">my-account</a></li>
                                                     <li><a href="login-register.html">login-register</a></li>
                                                     <li><a href="about-us.html">about us</a></li>
-                                                    <li><a href="contact-us.html">contact us</a></li>
+                                                    <li><a href="https://www.facebook.com/buitienquat">contact us</a></li>
                                                 </ul>
                                             </li>
                                         </ul>
@@ -309,7 +309,7 @@
                                             <li><a href="blog-details-image.html">blog details image</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="contact-us.html">Contact us</a></li>
+                                    <li><a href="https://www.facebook.com/buitienquat">Contact us</a></li>
                                 </ul>
                             </nav>
                             <!-- mobile menu navigation end -->
@@ -384,9 +384,10 @@
                 </div>
                 <div class="container">
                     <div class="offcanvas-search-box">
-                        <form class="d-flex bdr-bottom w-100">
-                            <input type="text" placeholder="Search entire storage here...">
-                            <button class="search-btn"><i class="fa fa-search"></i>search</button>
+                        <form action="home" method="GET" class="d-flex bdr-bottom w-100">
+                            <input type="hidden" name="action" value="search">
+                            <input type="text" name="keyword" placeholder="Search entire storage here..." >
+                            <a href="#" class="search-btn" onclick="return this.closest('form').submit()"><i class="fa fa-search"></i>search</a>
                         </form>
                     </div>
                 </div>
@@ -427,30 +428,12 @@
                                     <h6 class="sidebar-title">Categories</h6>
                                     <div class="sidebar-body">
                                         <ul class="checkbox-container search-list">
-                                            <li>
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                                    <label class="custom-control-label" for="customCheck1">Mens (3)</label>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" id="customCheck2">
-                                                    <label class="custom-control-label" for="customCheck2">Womens (4)</label>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" id="customCheck3">
-                                                    <label class="custom-control-label" for="customCheck3">Kids (15)</label>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" id="customCheck4">
-                                                    <label class="custom-control-label" for="customCheck4">Sports (10)</label>
-                                                </div>
-                                            </li>
+                                            <c:forEach items="${listCategory}" var="cate">
+                                                <li>
+                                                    <label>&#128095</label>
+                                                    <a href="home?search=category&categoryId=${cate.getId()}"><label class="custom-control-label">${cate.getName()} (3)</label></a>
+                                                </li>
+                                            </c:forEach>
                                         </ul>
                                     </div>
                                 </div>
@@ -739,19 +722,19 @@
 
         <!-- footer area start -->
         <jsp:include page="../common/commonHome/footer.jsp"></jsp:include>
-        <!-- footer area end -->
+            <!-- footer area end -->
 
 
 
-        <!-- Quick view modal start -->
+            <!-- Quick view modal start -->
         <jsp:include page="../common/commonHome/quick-view-modal.jsp"></jsp:include>
-        <!-- Quick view modal end -->
+            <!-- Quick view modal end -->
 
-        <!-- JS
-    ============================================ -->
+            <!-- JS
+        ============================================ -->
 
-        <!-- Modernizer JS -->
-        <script src="${pageContext.request.contextPath}/js/vendor/modernizr-3.6.0.min.js"></script>
+            <!-- Modernizer JS -->
+            <script src="${pageContext.request.contextPath}/js/vendor/modernizr-3.6.0.min.js"></script>
         <!-- jQuery JS -->
         <script src="${pageContext.request.contextPath}/js/vendor/jquery-3.6.0.min.js"></script>
         <!-- Bootstrap JS -->
