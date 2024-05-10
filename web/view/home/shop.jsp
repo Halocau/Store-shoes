@@ -483,38 +483,12 @@
                                 <div class="sidebar-single">
                                     <h6 class="sidebar-title">Categories</h6>
                                     <div class="sidebar-body">
-                                        <ul class="radio-container search-list">
-                                            <li>
-                                                <div class="custom-control custom-radio">
-                                                    <input type="radio" class="custom-control-input" id="customCheck50">
-                                                    <label class="custom-control-label" for="customCheck50">$7.00 - $9.00 (2)</label>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="custom-control custom-radio">
-                                                    <input type="radio" class="custom-control-input" id="customCheck51">
-                                                    <label class="custom-control-label" for="customCheck51">$10.00 - $12.00 (3)</label>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="custom-control custom-radio">
-                                                    <input type="radio" class="custom-control-input" id="customCheck52">
-                                                    <label class="custom-control-label" for="customCheck52">$17.00 - $20.00 (3)</label>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="custom-control custom-radio">
-                                                    <input type="radio" class="custom-control-input" id="customCheck53">
-                                                    <label class="custom-control-label" for="customCheck53"> $21.00 - $22.00 (1)</label>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="custom-control custom-radio">
-                                                    <input type="radio" class="custom-control-input" id="customCheck54">
-                                                    <label class="custom-control-label" for="customCheck54">$25.00 - $30.00 (3)</label>
-                                                </div>
-                                            </li>
-                                        </ul>
+                                        <form action="home" method="GET">
+                                            <input type="hidden" name="action" value="rangeSearch">
+                                            <input type="range" min="1" max="500" name="price" value="${param.price}" class="slider" id="myRange">
+                                            <p>Price: <span id="demo"></span>k to 500k</p>
+                                            <input type="button" onclick="return this.closest('form').submit()" value="Search" style="margin-top: 0;" class="submit"><br><br>
+                                        </form>
                                     </div>
                                 </div>
                                 <!-- single sidebar end -->
@@ -694,33 +668,25 @@
                                 <!-- product item list wrapper end -->
 
                                 <!-- start pagination area -->
-                                <div class="paginatoin-area text-center">
-                                    <ul class="pagination-box">
-                                        <li><a class="previous" href="#"><i class="fa fa-angle-left"></i></a></li>
-                                        <li class="active"><a href="#">1</a></li>
-                                        <li><a href="#">2</a></li>
-                                        <li><a href="#">3</a></li>
-                                        <li><a class="next" href="#"><i class="fa fa-angle-right"></i></a></li>
-                                    </ul>
+                                <jsp:include page="../common/commonHome/pagination-area.jsp"></jsp:include>
+                                    <!-- end pagination area -->
                                 </div>
-                                <!-- end pagination area -->
                             </div>
+                            <!-- shop main wrapper end -->
                         </div>
-                        <!-- shop main wrapper end -->
                     </div>
                 </div>
+                <!-- page main wrapper end -->
+            </main>
+
+            <!-- Scroll to top start -->
+            <div class="scroll-top not-visible">
+                <i class="fa fa-angle-up"></i>
             </div>
-            <!-- page main wrapper end -->
-        </main>
-
-        <!-- Scroll to top start -->
-        <div class="scroll-top not-visible">
-            <i class="fa fa-angle-up"></i>
-        </div>
-        <!-- Scroll to Top End -->
+            <!-- Scroll to Top End -->
 
 
-        <!-- footer area start -->
+            <!-- footer area start -->
         <jsp:include page="../common/commonHome/footer.jsp"></jsp:include>
             <!-- footer area end -->
 
@@ -763,6 +729,15 @@
         <script src="${pageContext.request.contextPath}/js/plugins/google-map.js"></script>
         <!-- Main JS -->
         <script src="${pageContext.request.contextPath}/js/main.js"></script>
+        <script>
+                                var slider = document.getElementById("myRange");
+                                var output = document.getElementById("demo");
+                                output.innerHTML = slider.value;
+
+                                slider.oninput = function () {
+                                    output.innerHTML = this.value;
+                                };
+        </script>
     </body>
 
 

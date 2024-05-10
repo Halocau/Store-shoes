@@ -51,10 +51,19 @@ public class ProductDAO extends GenericDAO<Product> {
         parameterMap = new LinkedHashMap<>();
         parameterMap.put("searchName", "%" + searchName + "%");
         return queryGenericDAO(Product.class, sql, parameterMap) == null
-                ? findAll() 
+                ? findAll()
                 : queryGenericDAO(Product.class, sql, parameterMap);
     }
-     public static void main(String[] args) {
+
+    public static void main(String[] args) {
         System.out.println(new ProductDAO().findProductByKeyword("SAN FELIPE INTERNATIONAL AIRPORT"));
+    }
+
+    public List<Product> searchProductByRangePrice(float price_float) {
+        String sql = "SELECT * FROM dbo.Product\n"
+                + "WHERE price > ? AND  price < 500";
+        parameterMap = new LinkedHashMap<>();
+        parameterMap.put("price", price_float);
+        return queryGenericDAO(Product.class, sql, parameterMap);
     }
 }
