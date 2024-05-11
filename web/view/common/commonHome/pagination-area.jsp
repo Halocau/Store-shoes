@@ -9,9 +9,9 @@
 <div class="paginatoin-area text-center">
     <ul class="pagination-box">
         <li><a class="previous" href="#"><i class="fa fa-angle-left"></i></a></li>
-                <c:forEach begin="1" end="${pageControl.totalPage}" var="pageNumber"> 
+        <c:forEach begin="1" end="${pageControl.totalPage}" var="pageNumber"> 
             <!--<li class="active"><a href="#">1</a></li>-->
-            <li><a href="${pageControl.urlPattern}?page=${pageNumber}">${pageNumber}</a></li>
+            <li><a href="${pageControl.getUrlPattern()}page=${pageNumber}">${pageNumber}</a></li>
         </c:forEach>
         <li><a class="next" href="#"><i class="fa fa-angle-right"></i></a></li>
     </ul>

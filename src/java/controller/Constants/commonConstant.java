@@ -9,6 +9,6 @@ package controller.Constants;
  * @author Admin
  */
 public class commonConstant {
-    public static final int RECORD_PER_PAGE = 10; // 1 trang sẽ hiểu thị ra 10 sản phẩm
+    public static final int RECORD_PER_PAGE = 9; // 1 trang sẽ hiểu thị ra 10 sản phẩm
     
 }

@@ -385,7 +385,7 @@
                 <div class="container">
                     <div class="offcanvas-search-box">
                         <form action="home" method="GET" class="d-flex bdr-bottom w-100">
-                            <input type="hidden" name="action" value="search">
+                            <input type="hidden" name="action" value="searchByName">
                             <input type="text" name="keyword" placeholder="Search entire storage here..." >
                             <a href="#" class="search-btn" onclick="return this.closest('form').submit()"><i class="fa fa-search"></i>search</a>
                         </form>
@@ -431,7 +431,7 @@
                                             <c:forEach items="${listCategory}" var="cate">
                                                 <li>
                                                     <label>&#128095</label>
-                                                    <a href="home?search=category&categoryId=${cate.getId()}"><label class="custom-control-label">${cate.getName()} (3)</label></a>
+                                                    <a href="home?action=category&categoryId=${cate.getId()}"><label class="custom-control-label">${cate.getName()} (3)</label></a>
                                                 </li>
                                             </c:forEach>
                                         </ul>
@@ -485,8 +485,8 @@
                                     <div class="sidebar-body">
                                         <form action="home" method="GET">
                                             <input type="hidden" name="action" value="rangeSearch">
-                                            <input type="range" min="1" max="500" name="price" value="${param.price}" class="slider" id="myRange">
-                                            <p>Price: <span id="demo"></span>k to 500k</p>
+                                            <input type="range" min="1" max="10000" name="price" value="${param.price}" class="slider" id="myRange">
+                                            <p>Price: <span id="demo"></span>k to 10000k</p>
                                             <input type="button" onclick="return this.closest('form').submit()" value="Search" style="margin-top: 0;" class="submit"><br><br>
                                         </form>
                                     </div>

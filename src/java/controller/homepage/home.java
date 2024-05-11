@@ -63,50 +63,61 @@ public class home extends HttpServlet {
         int page;
         try {
             page = Integer.parseInt(pageRaw);
-            if(page <= 0){
+            if (page <= 0) {
                 page = 1;
             }
         } catch (Exception e) {
             page = 1;// sai mặc định gắn cho page =1
         }
-        
+
         //get ve search
-         // get list product
-        String actionSearch = request.getParameter("action") == null 
+        // get list product
+        String actionSearch = request.getParameter("action") == null
                 ? "default" : request.getParameter("action");
         List<Product> listProduct = null;
+        // get về request url : 
+        String requestURL = request.getRequestURL().toString();
+        //total record
+        int totalRecord = 0;
         switch (actionSearch) {
-            case "search":
+            case "searchByName":
                 String searchName = request.getParameter("keyword");
-                listProduct = productDAO.findProductByKeyword(searchName);
+                totalRecord = productDAO.findTotalRecordSearchName(searchName);
+                listProduct = productDAO.findProductByKeyword(searchName, page);
+                pageControl.setUrlPattern(requestURL + "?action=searchByName&keyword=" + searchName + "&");
                 break;
             case "category":
-                String idCategory = request.getParameter("categoryId");
-                listProduct = productDAO.findProductByCategory(idCategory);
+                String categoryId = request.getParameter("categoryId");
+                totalRecord = productDAO.findTotalRecordByCategory(categoryId);
+                listProduct = productDAO.findProductByCategory(categoryId, page);
+                pageControl.setUrlPattern(requestURL + "?action=category&categoryId=" + categoryId + "&");
                 break;
-//                rangePrice
             case "rangeSearch":
-                String priceRaw = (request.getParameter("price"));
-                float price_float;
+                String priceRange = request.getParameter("price");
+                float priceRaw = 0;
                 try {
-                    price_float = Integer.parseInt(priceRaw);
-                    listProduct = productDAO.searchProductByRangePrice(price_float);
+                    priceRaw = Float.parseFloat(priceRange);
                 } catch (Exception e) {
+                    priceRaw = 1;
                 }
+                totalRecord = productDAO.findTotalRecordByPrice(priceRaw);
+                listProduct = productDAO.searchProductByRangePrice(priceRaw, page);
+                pageControl.setUrlPattern(requestURL + "?action=rangeSearch&price=" + priceRaw + "&");
                 break;
             default:
-                listProduct = productDAO.findAll();
+                totalRecord = productDAO.findTotalRecord();
+                listProduct = productDAO.findByPage(page);
+                pageControl.setUrlPattern(requestURL + "?");
         }
-        //total record
-        int totalRecord = listProduct.size(); // tổng số sản phẩm của product
         // total page
         int totalPage = (totalRecord % commonConstant.RECORD_PER_PAGE) == 0
                 ? (totalRecord / commonConstant.RECORD_PER_PAGE) // chia hết thì lấy số đó tổng trang
                 : (totalRecord / commonConstant.RECORD_PER_PAGE) + 1; // không chia hết thì cộng 1 
         //set total record, total page, page vao page control
-        pageControl.setTotalRecord(totalRecord);
+        pageControl.setPage(page);
         pageControl.setTotalPage(totalPage);
-       return listProduct;
+        pageControl.setTotalRecord(totalRecord);
+        return listProduct;
     }
 
 }
